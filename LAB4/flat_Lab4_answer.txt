@@ -1,0 +1,11 @@
+// Flag: cryptoCTF{meowmeow}
+
+// Reasoning:
+// 1. The Google search URL is percent-encoded. Decoding it gives: 
+//    b6ccb4ece5454dcae51778b3e239ebc2
+// 2. This matches the p1crypt values in the login URL when joined together
+//    — meaning the person searched their own password hash on Google.
+// 3. This 32-character hex string is the format of MD5, not bcrypt as claimed —
+//    the person's trust in bcrypt was misplaced.
+// 4. The regex's hex bytes \x6d\x65\x6f\x77 decode to "meow", repeated twice
+//    per the {2} quantifier → meowmeow.
